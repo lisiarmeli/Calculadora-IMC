@@ -12,21 +12,16 @@ def calculadora():
         while validarCadena(apellidoMaterno):
             apellidoMaterno = input("Ingrese un apellido materno valido por favor: ")
 
-        e = validarEdad(input("Ingrese su edad: "))#validarEdad() devuelve 0, pediremos nuevamnte la edad ya que es ingresaron un valor no numerico
-        while e == 0:
-            e = validarEdad(input("Por favor ingresa un dato numerico: "))
-        a = validarAltura(input("Ingrese su altura con punto decimal por favor: "))
-        while a == 0:
-            a = validarAltura(input("Por favor ingrese un dato numerico con punto decimal por favor y que sea menor a 2 metros: "))
-        # Aqui se duplica codigo pero bueno... decimos que est (de estatura) es igual a altura (No me diga)
-        est = a
-        # La masa en kilogramos si puede tener decimales asi que la dejamos flotante
-        m = float(input("Su masa en kilogramos por favor :"))
-        # Calculo del IMC, masa (En kilogramos) entre la estatura (En metros) elevada al cuadrado
-        IMC = m / est ** 2
-        # Le decimos si es menor o mayor de edad, si es menor a 18 es menor, si no es mayor edad
-        # Solo ruegue porque a nadie se le ocurra meter numeros negativos, le va a decir que es menor de edad
-        if (e < 18):
+        edad = validarEdad(input("Ingrese su edad: "))#validarEdad() devuelve 0, pediremos nuevamnte la edad ya que es ingresaron un valor no numerico
+        while edad == 0:
+            edad = validarEdad(input("Por favor ingresa un dato numerico: "))
+        altura = validarAltura(input("Ingrese su altura con punto decimal por favor: "))
+        while altura == 0:
+            altura = validarAltura(input("Por favor ingrese un dato numerico con punto decimal por favor y que sea menor a 2 metros: "))
+
+        masa = float(input("Su masa en kilogramos por favor :"))
+        IMC = masa /altura ** 2
+        if (edad < 18):
             print("Usted es menor de edad")
         else:
             print("Usted es mayor de edad")
